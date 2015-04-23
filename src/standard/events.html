@@ -70,15 +70,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             node.localName, eventName, methodName, host);
         }
       };
-      switch (eventName) {
-        case 'tap':
-        case 'track':
-          Polymer.Gestures.add(eventName, node, handler);
-          break;
 
-        default:
-          node.addEventListener(eventName, handler);
-          break;
+      if (Polymer.Gestures.gestures[eventName]) {
+        Polymer.Gestures.add(eventName, node, handler);
+      } else {
+        node.addEventListener(eventName, handler);
       }
     },
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gesture Test</title>
+  <link rel="import" href="../../polymer.html">
+</head>
+<body>
+  <gesture-target></gesture-target>
+  <style>
+    gesture-target {
+      display: block;
+      height: 500px;
+      width: 500px;
+      background-color: gray;
+      content: 'Gesture Target';
+    }
+  </style>
+  <script>
+    Polymer({
+      is: 'gesture-target',
+      listeners: {
+        'down': 'log',
+        'up': 'log'
+      },
+      log: function(ev) {
+        console.log(ev.type);
+      }
+    });
+  </script>
+</body>
+</html>
